@@ -42,33 +42,36 @@ Input fields for messages and a display area for chat history.
 
    - Register
      ![register](https://github.com/user-attachments/assets/722d6155-9af2-4e73-bf45-ffdcf9888feb)
-    - setAvatar
+   - setAvatar
      ![setAvatar ](https://github.com/user-attachments/assets/957a8c6a-0ee4-411f-a871-e46ed2c8a4e0)
 
-     - Login
-       ![login](https://github.com/user-attachments/assets/327c09f6-d46d-4dfe-ae0d-6b4c71756cab)
+   - Login
+    ![login](https://github.com/user-attachments/assets/327c09f6-d46d-4dfe-ae0d-6b4c71756cab)
+   - Dashboard
+     ![Dashboard](https://github.com/user-attachments/assets/f455941a-c14d-40f1-9273-f7c5db926508)
 
-       - Dashboard
-         ![Dashboard](https://github.com/user-attachments/assets/f455941a-c14d-40f1-9273-f7c5db926508)
+   - Broadcast
+   - ![broadcast](https://github.com/user-attachments/assets/6fde5742-1987-492e-adb6-4222c33983f9)
 
-         - Broadcast
-         - ![broadcast](https://github.com/user-attachments/assets/6fde5742-1987-492e-adb6-4222c33983f9)
-        
-           - message Specific person
-             ![message to specific user](https://github.com/user-attachments/assets/0c2d0eee-28b4-4e29-981e-7cb650b358fc)
+   - message Specific person
+     ![message to specific user](https://github.com/user-attachments/assets/0c2d0eee-28b4-4e29-981e-7cb650b358fc)
 
 
 
     
     ## APIS
   - Authentication
-      - Login(post) -http://localhost:9090/auth/login
-      - Signup(post) -http://localhost:9090/auth/signup
+      - Login(post) -http://localhost:5000/api/auth/login
+      - Signup(post) -http://localhost:5000/api/auth/register
+      - Logout(post) -http://localhost:5000/api/auth/logout/668f75582ebadec329e7a25b
   - Product
-       - Create(post) -http://localhost:9090/product/create
-       - Update(post) -http://localhost:9090/product/update
-       - Delete(post) -http://localhost:9090/product/delete
-       - GetProduct(get) -http://localhost:9090/product/get         
+       - getAllUser(get) -http://localhost:5000/api/auth/allusers/668f75582ebadec329e7a25b
+       - setAvatar(post) -http://localhost:5000/api/auth/setAvatar/668f75582ebadec329e7a25b
+       - getmessage(post) -http://localhost:5000/api/messages/getmsg/
+       - addNessage(post) -http://localhost:5000/api/messages/addmsg/
+   
+  - ## Postman API collectiom
+    - Available in the code section
 
 
 
