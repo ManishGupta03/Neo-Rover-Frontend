@@ -42,13 +42,39 @@ Input fields for messages and a display area for chat history.
 
    - Register
      ![register](https://github.com/user-attachments/assets/722d6155-9af2-4e73-bf45-ffdcf9888feb)
+    - setAvatar
+     ![setAvatar ](https://github.com/user-attachments/assets/957a8c6a-0ee4-411f-a871-e46ed2c8a4e0)
 
-    - SetAvatar
-    ![setAvatar ](https://github.com/user-attachments/assets/c5275ca5-8ccb-48a3-bd2e-57cc7566184e)
+     - Login
+       ![login](https://github.com/user-attachments/assets/327c09f6-d46d-4dfe-ae0d-6b4c71756cab)
 
-    - Login
-      ![login](https://github.com/user-attachments/assets/fe7ff3e8-69e1-47c0-a34f-9406dd38d3dc)
-      
+       - Dashboard
+         ![Dashboard](https://github.com/user-attachments/assets/f455941a-c14d-40f1-9273-f7c5db926508)
+
+         - Broadcast
+         - ![broadcast](https://github.com/user-attachments/assets/6fde5742-1987-492e-adb6-4222c33983f9)
+        
+           - message Specific person
+             ![message to specific user](https://github.com/user-attachments/assets/0c2d0eee-28b4-4e29-981e-7cb650b358fc)
+
+
+
+    
+    ## APIS
+  - Authentication
+      - Login(post) -http://localhost:9090/auth/login
+      - Signup(post) -http://localhost:9090/auth/signup
+  - Product
+       - Create(post) -http://localhost:9090/product/create
+       - Update(post) -http://localhost:9090/product/update
+       - Delete(post) -http://localhost:9090/product/delete
+       - GetProduct(get) -http://localhost:9090/product/get         
+
+
+
+
+     
+
 
 
 
