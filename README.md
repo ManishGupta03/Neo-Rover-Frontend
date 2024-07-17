@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Simple Chat application using Chat Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Develop a simple chat application that uses WebSockets for real-time communication. The application includes user validation and authentication to ensure secure access.
+## Features
+- User Registration and Authentication:
 
-## Available Scripts
+- User registration with basic details (username, password, email).
+Secure storage of user credentials using hashing techniques.
+Login mechanism to authenticate users before they can access the chat application.
+WebSocket Setup:
 
-In the project directory, you can run:
+- Establish WebSocket connection between the client and the server.
+Ensure only authenticated users can open a WebSocket connection.
+Real-time Messaging:
 
-### `npm start`
+- Allow users to send and receive messages in real-time.
+Broadcast messages to all connected users.
+Message Handling:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Display messages with timestamps and the sender’s username.
+Ensure reliable transmission and reception of messages over WebSocket connections.
+User Interface:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Simple and intuitive user interface for the chat application.
+Input fields for messages and a display area for chat history.
 
-### `npm test`
+## Technology Used
+- Frontend: HTML, CSS, JavaScript (React)
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- WebSockets: Socket.IO
+- Authentication: JWT (JSON Web Tokens), bcrypt
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequisites
+- NodeJs
+- MongoDB
 
-### `npm run build`
+## OutPUTS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - welcome
+     ![welcome](https://github.com/user-attachments/assets/eec51a86-99b7-4558-a106-b9f4288fa68e)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Register
+     ![register](https://github.com/user-attachments/assets/722d6155-9af2-4e73-bf45-ffdcf9888feb)
+   - setAvatar
+     ![setAvatar ](https://github.com/user-attachments/assets/957a8c6a-0ee4-411f-a871-e46ed2c8a4e0)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - Login
+    ![login](https://github.com/user-attachments/assets/327c09f6-d46d-4dfe-ae0d-6b4c71756cab)
+   - Dashboard
+     ![Dashboard](https://github.com/user-attachments/assets/f455941a-c14d-40f1-9273-f7c5db926508)
 
-### `npm run eject`
+   - Broadcast
+   - ![broadcast](https://github.com/user-attachments/assets/6fde5742-1987-492e-adb6-4222c33983f9)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   - message Specific person
+     ![message to specific user](https://github.com/user-attachments/assets/0c2d0eee-28b4-4e29-981e-7cb650b358fc)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    
+    ## APIS
+  - Authentication
+      - Login(post) -http://localhost:5000/api/auth/login
+      - Signup(post) -http://localhost:5000/api/auth/register
+      - Logout(post) -http://localhost:5000/api/auth/logout/668f75582ebadec329e7a25b
+  - Product
+       - getAllUser(get) -http://localhost:5000/api/auth/allusers/668f75582ebadec329e7a25b
+       - setAvatar(post) -http://localhost:5000/api/auth/setAvatar/668f75582ebadec329e7a25b
+       - getmessage(post) -http://localhost:5000/api/messages/getmsg/
+       - addNessage(post) -http://localhost:5000/api/messages/addmsg/
+   
+  - ## Postman API collectiom
+    - Available in the code section
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+     
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

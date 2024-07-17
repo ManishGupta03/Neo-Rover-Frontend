@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "7c9f7e5d-dc89-4cf3-96e4-be2d3978a0b2",
+		"name": "Neo-ChatRoom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25929628"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"email\":\"krishna@gmail.com\",\r\n    \"username\":\"Krishna\",\r\n    \"password\":\"Krishna\",\r\n    \"confirm password\":\"Krishna\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loginId\":\"Krishna\",\r\n    \"password\":\"Krishna\"\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/logout/668f75582ebadec329e7a25b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"logout",
+						"668f75582ebadec329e7a25b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/allusers/668f75582ebadec329e7a25b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"allusers",
+						"668f75582ebadec329e7a25b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setAvatar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/setAvatar/668f75582ebadec329e7a25b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"setAvatar",
+						"668f75582ebadec329e7a25b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/logout/668f75582ebadec329e7a25b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"logout",
+						"668f75582ebadec329e7a25b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getmessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\":\"from\",\r\n    \"to\":\"to\",\r\n    \"isGroup\":\"isGroup\",\r\n    \"groupId\":\"groupId\",\r\n    \"username\":\"username\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/messages/getmsg/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"messages",
+						"getmsg",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addmessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\":\"from\",\r\n    \"to\":\"to\",\r\n    \"message\":\"message\",\r\n    \"isGroup\":\"isGroup\",\r\n    \"groupId\":\"groupId\",\r\n    \"username\":\"username\"\r\n}   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/messages/addnsg/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"messages",
+						"addnsg",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
