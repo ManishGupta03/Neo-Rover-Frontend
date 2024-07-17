@@ -47,7 +47,7 @@ export default function Chat() {
     }
   }
   fetchUp();
-}  , [navigate]);
+}  , [navigate,token]);
 
   useEffect(() => {
     if (currentUser) {

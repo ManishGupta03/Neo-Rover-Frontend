@@ -32,16 +32,8 @@ export default function GroupChatContainer({ currentChat, socket, showGroupMessa
     let mounted = true;
     const fetchMessages = async () => {
         try {
-      const data = await JSON.parse(
-        sessionStorage.getItem(token)
-      );
-      const response = await axios.post(recieveMessageRoute, {
-        from: data._id,
-        groupId: groupId,
-        isGroup: true,
-        to:groupId,
-        username:data.username,
-      });
+      const data = await JSON.parse(sessionStorage.getItem(token) );
+      const response = await axios.post(recieveMessageRoute, { from: data._id, to:groupId, });
       if (mounted) {
         setMessages(response.data); // Only update state if component is still mounted
       }
@@ -68,6 +60,7 @@ export default function GroupChatContainer({ currentChat, socket, showGroupMessa
 
   const handleSendMsg = async (msg) => {
     const data = await JSON.parse( sessionStorage.getItem(token));
+    const timestamp = new Date().toLocaleTimeString();
     socket.current.emit("send-msg", {
       to: groupId,
       from: data._id,
@@ -75,6 +68,7 @@ export default function GroupChatContainer({ currentChat, socket, showGroupMessa
       groupId:groupId,
       username:data.username,
       msg,
+      timestamp:timestamp,
     });
 
     await axios.post(sendMessageRoute, {
@@ -84,17 +78,18 @@ export default function GroupChatContainer({ currentChat, socket, showGroupMessa
       isGroup: true,
       groupId: groupId,
       username:data.username,
+      timestamp:timestamp,
     });
 //username:data.username,
     const msgs = [...messages];
-    msgs.push({ fromSelf: true, message: msg, username:data.username });
+    msgs.push({ fromSelf: true, message: msg, username:data.username,timestamp:timestamp });
     setMessages(msgs);
   };
 
   useEffect(() => {
     if (socket.current) {
-      socket.current.on("msg-recieve", (msg,username) => {
-        setArrivalMessage({ fromSelf: false, message: msg, username:username});
+      socket.current.on("msg-recieve", (msg,username,timestamp) => {
+        setArrivalMessage({ fromSelf: false, message: msg, username:username,timestamp:timestamp});
       });
     }
   }, [socket]);
@@ -129,6 +124,7 @@ export default function GroupChatContainer({ currentChat, socket, showGroupMessa
                   <div className="adj">
                   <p className="userm"> {message.username}:</p>
                   <p className="userms">{message.message}</p>
+                  <p className="timestamp">{message.timestamp}</p>
                   </div>
                 </div>
               </div>
@@ -222,14 +218,23 @@ const Container = styled.div`
                display:flex;
           }
           .userm{
-                  margin-top:-7px;
+                  margin-top:-8px;
                   text-align:left;
                   font-size:0.5rem;
+                  color:yellow;
           }
           .userms{
           text-align:left;
-          margin-left:-10px;
+          margin-left:-20px;
           }
+           .timestamp {
+          font-size: 0.55rem;
+          color: gray;
+          text-align: right;
+          margin-top: 15px;
+          gap: 3px;
+          margin-right:-3px;
+        }
           
       }
     }

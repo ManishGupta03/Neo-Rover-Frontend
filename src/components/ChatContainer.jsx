@@ -19,7 +19,7 @@ export default function ChatContainer({ rerenderChat, renderKey, currentChat, so
   useEffect( ()=>{
     const fetchMessages = async () => {
     const data = await JSON.parse(sessionStorage.getItem(token));
-    const response = await axios.post(recieveMessageRoute, { from: data._id,to: currentChat._id, isGroup: currentChat.isGroup, groupId: currentChat.groupId,username:data.username, });
+    const response = await axios.post(recieveMessageRoute, { from: data._id,to: currentChat._id,});
     setMessages(response.data);
   }
   fetchMessages();
@@ -38,6 +38,7 @@ export default function ChatContainer({ rerenderChat, renderKey, currentChat, so
 
   const handleSendMsg = async (msg) => {
     const data = await JSON.parse(sessionStorage.getItem(token) );
+    const timestamp = new Date().toLocaleTimeString();
     socket.current.emit("send-msg", {
       to: currentChat._id,
       from: data._id,
@@ -45,27 +46,30 @@ export default function ChatContainer({ rerenderChat, renderKey, currentChat, so
       isGroup: currentChat.isGroup,
       groupId: currentChat.groupId,
       username:data.username,
+      timestamp:timestamp,
     });
     // console.log(data._id);
     // console.log(currentChat._id);
-    await axios.post(sendMessageRoute, {
+     await axios.post(sendMessageRoute, {
       from: data._id,
       to: currentChat._id,
       message: msg,
       isGroup: currentChat.isGroup,
       groupId: currentChat.groupId,
       username:data.username,
+      timestamp:timestamp,
+      
     });
-
+    // const date = new Date(data1.updatedAt).toISOString().split("T")[0];
     const msgs = [...messages];
-    msgs.push({ fromSelf: true, message: msg, username:data.username });
+    msgs.push({ fromSelf: true, message: msg, username:data.username,timestamp:timestamp });
     setMessages(msgs);
   };
 
   useEffect(() => {
     if (socket.current) {
-      socket.current.on("msg-recieve", (msg,username) => {
-        setArrivalMessage({ fromSelf: false, message: msg, username:username });
+      socket.current.on("msg-recieve", (msg,username,timestamp) => {
+        setArrivalMessage({ fromSelf: false, message: msg, username:username,timestamp:timestamp});
       });
     }
   }, [socket]);
@@ -110,6 +114,7 @@ export default function ChatContainer({ rerenderChat, renderKey, currentChat, so
               <div className="adj">
                   <p className="userm"> {message.username}:</p>
                   <p className="userms">{message.message}</p>
+                  <p className="timestamp">{message.timestamp}</p>
               </div>
               </div>
               </div>
@@ -187,6 +192,7 @@ const Container = styled.div`
     .message {
       display: flex;
       align-items: center;
+      padding-bottom:-30px;
       .content {
         max-width: 40%;
         overflow-wrap: break-word;
@@ -201,14 +207,23 @@ const Container = styled.div`
                display:flex;
           }
           .userm{
-                  margin-top:-7px;
+                  margin-top:-8px;
                   text-align:left;
                   font-size:0.5rem;
+                  color:yellow;
           }
           .userms{
           text-align:left;
-          margin-left:-10px;
+          margin-left:-20px;
           }
+          .timestamp {
+          font-size: 0.55rem;
+          color: gray;
+          text-align: right;
+          margin-top: 15px;
+          gap: 3px;
+          margin-right:-3px;
+        }
       }
     }
     .sended {

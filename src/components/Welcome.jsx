@@ -17,7 +17,7 @@ export default function Welcome() {
     );
   }
   usernameSet();
-  }, []);
+  }, [token]);
   return (
     <Container>
       <img src={Robot} alt="" />
